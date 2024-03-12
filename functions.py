@@ -1,4 +1,4 @@
-FILEPATH = "command line interface/todo_list.txt"
+FILEPATH = "todo_list.txt"
 
 # custom functions
 def read_todo(filepath = FILEPATH):
