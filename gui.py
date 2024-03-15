@@ -1,6 +1,10 @@
 import functions
 import PySimpleGUI as sg
-import time
+import os
+
+if not os.path.exists("todo_list.txt"):
+    with open("todo_list.txt", "w") as file:
+        pass
 
 sg.theme("LightBrown6")
 clock = sg.Text('', key="clock")
@@ -24,8 +28,7 @@ window = sg.Window('My To-Do App',
                    font=('Helvetica', 20))
 
 while True:
-    event, values = window.read(timeout=200)
-    window["clock"].update(value=time.strftime("%b %d, %Y %H:%M:%S"))
+    event, values = window.read()
     match event:
             case "Add":
                 todo_list = functions.read_todo()
